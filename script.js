@@ -18,11 +18,11 @@ const userInterface = readline.createInterface({
 //Take input and store in "input"
 userInterface.prompt()
 userInterface.on("line", async input => {
-  const response = await openAi.createChatCompletion({
-    model: "gpt-3.5-turbo",
-    messages: [{ role: "user", content: input }],
+  const response = await openAi.createChatCompletion({    //createChatCompletion method to get response from openai
+    model: "gpt-3.5-turbo",   //Version of openai chatgpt
+    messages: [{ role: "user", content: input }],   //content : input which will sent to openai
   })
   //console.log(input)
   console.log(response.data.choices[0].message.content)
-  userInterface.prompt()
+  userInterface.prompt()    //take input continuoiusly from users
 })
